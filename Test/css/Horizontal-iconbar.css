@@ -1,0 +1,23 @@
+.icon-bar {
+    width: 100%; /* Đặt chiều rộng cụ thể */
+    background-color: #555; /* Nền xám đậm */
+    overflow: auto; /* Tràn do trôi nổi */
+  }
+  
+  .icon-bar a {
+    float: left; /* Các liên kết nổi cạnh nhau */
+    text-align: center; /* Căn giữa văn bản */
+    width: 20%; /* Chiều rộng bằng nhau (5 biểu tượng với 20% chiều rộng mỗi biểu tượng = 100%) */
+    padding: 12px 0; /* Một số đệm trên và dưới */
+    transition: all 0.3s ease; /* Thêm chuyển tiếp cho các hiệu ứng khi di chuột */
+    color: white; /* Màu văn bản trắng */
+    font-size: 36px; /* Tăng kích thước phông chữ */
+  }
+  
+  .icon-bar a:hover {
+    background-color: #000; /* Thêm màu di chuột */
+  }
+  
+  .active {
+    background-color: #04AA6D; /* Thêm màu đang hoạt động / hiện tại */
+  }

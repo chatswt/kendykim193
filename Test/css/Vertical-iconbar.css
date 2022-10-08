@@ -1,0 +1,21 @@
+.icon-bar {
+    width: 90px; /* Đặt chiều rộng cụ thể */
+    background-color: #555; /* Nền xám đậm */
+  }
+  
+  .icon-bar a {
+    display: block; /* Làm cho các liên kết xuất hiện bên dưới nhau thay vì cạnh nhau */
+    text-align: center; /* Căn giữa văn bản */
+    padding: 16px; /* Thêm một số đệm */
+    transition: all 0.3s ease; /* Thêm chuyển tiếp cho các hiệu ứng khi di chuột */
+    color: white; /* Màu văn bản trắng */
+    font-size: 36px; /* Tăng kích thước phông chữ */
+  }
+  
+  .icon-bar a:hover {
+    background-color: #000; /* Thêm màu di chuột */
+  }
+  
+  .active {
+    background-color: #04AA6D; /* Thêm màu đang hoạt động / hiện tại */
+  }
