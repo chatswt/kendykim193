@@ -1,3 +1,51 @@
+<?php
+//Khai báo sử dụng session
+session_start();
+ 
+//Khai báo utf-8 để hiển thị được tiếng việt
+header('Content-Type: text/html; charset=UTF-8');
+ 
+//Xử lý đăng nhập
+if (isset($_POST['dangnhap'])) 
+{
+    //Kết nối tới database
+    include('ketnoi.php');
+     
+    //Lấy dữ liệu nhập vào
+    $username = addslashes($_POST['uname']);
+    $password = addslashes($_POST['psw']);
+     
+    //Kiểm tra đã nhập đủ tên đăng nhập với mật khẩu chưa
+    if (!$username || !$password) {
+        echo "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu. <a href='javascript: history.go(-1)'>Trở lại</a>";
+        exit;
+    }
+     
+    // mã hóa pasword
+    $password = md5($password);
+     
+    //Kiểm tra tên đăng nhập có tồn tại không
+    $query = mysql_query("SELECT username, password FROM member WHERE username='$username'");
+    if (mysql_num_rows($query) == 0) {
+        echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
+        exit;
+    }
+     
+    //Lấy mật khẩu trong database ra
+    $row = mysql_fetch_array($query);
+     
+    //So sánh 2 mật khẩu có trùng khớp hay không
+    if ($password != $row['password']) {
+        echo "Mật khẩu không đúng. Vui lòng nhập lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
+        exit;
+    }
+     
+    //Lưu tên đăng nhập
+    $_SESSION['username'] = $username;
+    echo "Xin chào " . $username . ". Bạn đã đăng nhập thành công. <a href='/'>Về trang chủ</a>";
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -9,24 +57,9 @@
     <link rel="stylesheet" type="text/css" href="CSS/Navbar-with-Icons.css"><!--LINK NAVBAR CSS ICON CHO HOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- CODE TỪ BÊN THỨ 3 HOME -->
     <link rel="stylesheet" type="text/css" href="CSS/login.css"> <!--LINK LOGIN CSS-->
-    <link rel="stylesheet" type="text/css" href="CSS/table.css"> <!--ẢNH ĐĂNG NHẬP BỞICSS-->
-    <link rel="stylesheet" type="text/css" href="CSS/taskbar.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> <!--THÔNG BÁO-->
     <title>Đăng nhập</title>
 </head>
 <body>
-  <!--THÔNG BÁO-->
-  <div id="top-mess" class="top-message">
-    <div class="top-message-content container text-center">
-        <span class="glyphicon glyphicon-bullhorn"></span> Không thể đăng nhập được, SQL đang gặp lỗi vui lòng quay lại sau!PHÁT TRIỂN BỞI Kim Tuấn!!!
-        <span id="top-mess-hide" class="top-message-icon glyphicon glyphicon-chevron-up hidden-xs"></span>
-    </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="JS/text.js"></script>
     <center>
     <img id="th1" src="Image/dangnhap.png">
     <!--CODE HOME-->
@@ -39,7 +72,7 @@
     <br>
     <!--CODE ĐĂNG NHẬP TẠI ĐÂY-->
     <form action="dangnhap.php?do=login" method="post">
-        <div class="imgcontainer" >
+        <div class="imgcontainer">
           <img src="Image/logodauweb.jpg" alt="Avatar" class="avatar">
         </div>
       
