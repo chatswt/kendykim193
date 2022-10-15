@@ -1,0 +1,10 @@
+@font-face 
+{
+    font-family: ds-digital bold;
+    font-style: normal;
+    font-weight: 700;
+    src: local('DS-Digital Bold'),local('DS-Digital-Bold'),url('/Projects/Web/Modules/Examples/CodeFun/TrafficLights/fonts/ds-digital-bold.woff') format('woff'), url('/Projects/Web/Modules/Examples/CodeFun/TrafficLights/fonts/ds-digital-bold.ttf') format('truetype')
+}
+
+.font-digital { font-family: ds-digital bold }
+.traffic-light { border:solid 1px; width: 75px; height: 75px; border-radius:50%; display:inline-block; font-size: 70px; line-height: 73px }
