@@ -1,0 +1,23 @@
+.den{
+    width: 50px;
+    height: 50px;
+    background-color:black;
+    margin-bottom: 5px;
+    border-radius: 50%;
+}
+.thoigian{
+    width: 50px;
+    height: 50px;
+    background-color:black;
+    font-size: 24px;
+    margin-left: 12px;
+}
+.dendo{
+    background-color: red;
+}
+.denvang{
+    background-color: yellow;
+}
+.denxanh{
+    background-color: green;
+}
