@@ -19,7 +19,7 @@
   <!--THÔNG BÁO-->
   <div id="top-mess" class="top-message">
     <div class="top-message-content container text-center">
-        <span class="glyphicon glyphicon-bullhorn"></span> Không thể đăng nhập được, SQL đang gặp lỗi vui lòng quay lại sau!PHÁT TRIỂN BỞI Kim Tuấn!!!
+        <span class="glyphicon glyphicon-bullhorn"></span> Không thể đăng nhập được, Hệ thống đăng nhập được sử dụng tạo lập file JavaScript thay vì SQL! PHÁT TRIỂN BỞI Kim Tuấn!!!
         <span id="top-mess-hide" class="top-message-icon glyphicon glyphicon-chevron-up hidden-xs"></span>
     </div>
 </div>
@@ -38,23 +38,25 @@
     </div>
     <br>
     <!--CODE ĐĂNG NHẬP TẠI ĐÂY-->
-    <form action="dangnhap.php?do=login" method="post">
+    <form>
         <div class="imgcontainer" >
           <img src="Image/logodauweb.jpg" alt="Avatar" class="avatar">
         </div>
       
-        <div class="container" cellpadding='0' cellspacing='0' border='1'>
+        <div class="container">
           <label for="uname"><b>Tài khoản</b></label>
-          <input type="text" placeholder="Vui lòng nhập tên tài khoản" name="uname" required>
+          <input type="text" placeholder="Vui lòng nhập tên tài khoản" name="uname" id="txtAccount" required>
       
           <label for="psw"><b>Mật khẩu</b></label>
-          <input type="password" placeholder="Vui lòng nhập mật khẩu" name="psw" required>
+          <input type="password" placeholder="Vui lòng nhập mật khẩu" name="psw" id="txtPassword" required>
       
-          <button type="submit">ĐĂNG NHẬP</button>
-          <button>ĐĂNG KÝ</button>
+          <button onclick="Login()">ĐĂNG NHẬP</button>
+          <button onclick="Redirect()">ĐĂNG KÝ</button>
           <label>
             <input type="checkbox" checked="checked" name="remember"> Duy trì tài khoản cho lượt đăng nhập sau!
           </label>
+          <div id="message"></div>
+        <script src="JS/login.js"></script>
         </div>
       
         <div class="container" style="background-color:#f1f1f1">
@@ -62,10 +64,8 @@
           <span class="psw">Quên <a href="#">mật khẩu?</a></span>
         </div>
       </form>
+      <iframe width="420" height="200"
+src="where.html">
     </center>
-    <address>Học thẻ <address> html<br />
-      Email: <a href="mailto:kimdominic714@gmail.com">kimdominic714@gmail.com</a><br />
-      Địa chỉ: 63 Cổ Linh,Long Biên, Hà Nội.<br />
-      Điện thoại: 0973336178</address>
 </body>
 </html>

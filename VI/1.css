@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#a{
+    text-align: center;
+}
+.a{
+    text-align: center;
+    line-height: 1.5;
+}
+.b{
+    background-color: rgb(33, 61, 187);
+    color:white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+.c{
+    margin-top: 8px;
+    font-size: 2rem;
+}
+.d{
+    color: green;
+    font-weight: bold;
+}
+.e{
+    background-color: black;
+    color:white;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    margin-top: 16px;
+    border-radius: 8px;
+}
